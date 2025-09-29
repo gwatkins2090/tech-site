@@ -14,7 +14,8 @@ const FlowerOfLifeBackground = () => {
 
     // Detect performance tier
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+    const nav = navigator as Navigator & { deviceMemory?: number };
+    const hasLowMemory = nav.deviceMemory && nav.deviceMemory < 4;
 
     if (isMobile || hasLowMemory) {
       setPerformanceTier('medium');
@@ -22,7 +23,7 @@ const FlowerOfLifeBackground = () => {
   }, []);
 
   // Generate SVG string for background
-  const generateFlowerOfLifeSVG = (id) => {
+  const generateFlowerOfLifeSVG = (id: string) => {
     const radius = 40;
     const centerX = 100;
     const centerY = 100;
