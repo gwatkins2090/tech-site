@@ -5,13 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 
 function getInitialTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (stored === "dark" || (!stored && prefersDark)) return "dark";
+    if (stored === "light") return "light";
+    if (stored === "dark" || !stored) return "dark";
+    return prefersDark ? "dark" : "light";
   } catch {}
-  return "light";
+  return "dark";
 }
 
 export default function ThemeToggle() {

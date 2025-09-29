@@ -1,35 +1,38 @@
 import { Suspense } from 'react';
-import HeroSection from '@/components/gallery/hero-section';
-import GalleryGrid from '@/components/gallery/gallery-grid';
-import ArtistStatement from '@/components/gallery/artist-statement';
-import { siteSettings, featuredArtworks, artistInfo } from '@/lib/sample-data';
+import HeroSection from '@/components/portfolio/hero-section';
+import AboutSection from '@/components/portfolio/about-section';
+import SkillsSection from '@/components/portfolio/skills-section';
+import ProjectsSection from '@/components/portfolio/projects-section';
+import ContactSection from '@/components/portfolio/contact-section';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Full viewport height */}
+      {/* Hero Section */}
       <Suspense fallback={<div className="min-h-screen bg-muted animate-pulse" />}>
-        <HeroSection
-          settings={siteSettings}
-          featuredArtworks={featuredArtworks}
-        />
+        <div id="home">
+          <HeroSection />
+        </div>
       </Suspense>
 
-      {/* Featured Artworks Section */}
+      {/* About Section */}
       <Suspense fallback={<div className="h-96 bg-muted animate-pulse" />}>
-        <GalleryGrid
-          artworks={featuredArtworks}
-          title="Featured Works"
-          subtitle="A curated selection of recent pieces showcasing diverse techniques and themes"
-        />
+        <AboutSection />
       </Suspense>
 
-      {/* Artist Statement Section */}
+      {/* Skills Section */}
       <Suspense fallback={<div className="h-96 bg-muted animate-pulse" />}>
-        <ArtistStatement
-          settings={siteSettings}
-          artist={artistInfo}
-        />
+        <SkillsSection />
+      </Suspense>
+
+      {/* Projects Section */}
+      <Suspense fallback={<div className="h-96 bg-muted animate-pulse" />}>
+        <ProjectsSection />
+      </Suspense>
+
+      {/* Contact Section */}
+      <Suspense fallback={<div className="h-96 bg-muted animate-pulse" />}>
+        <ContactSection />
       </Suspense>
     </div>
   );

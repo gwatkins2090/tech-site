@@ -23,11 +23,11 @@ const Header = () => {
   const isMobile = useMobile();
 
   const navigationItems = [
-    { href: '/', label: 'Home', icon: null },
-    { href: '/portfolio', label: 'Portfolio', icon: ImageIcon },
-    { href: '/about', label: 'About', icon: User },
-    { href: '/shop', label: 'Shop', icon: ShoppingBag },
-    { href: '/contact', label: 'Contact', icon: Mail },
+    { href: '#home', label: 'Home', icon: null },
+    { href: '#about', label: 'About', icon: User },
+    { href: '#skills', label: 'Skills', icon: ImageIcon },
+    { href: '#projects', label: 'Projects', icon: ShoppingBag },
+    { href: '#contact', label: 'Contact', icon: Mail },
   ];
 
   const menuVariants = {
@@ -69,16 +69,13 @@ const Header = () => {
     <header className={`sticky top-0 z-50 w-full border-b ${isMenuOpen && isMobile ? 'bg-background backdrop-blur-md' : 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'}`}>
       <div className="container flex h-16 items-center justify-between">
         {/* Logo/Brand */}
-        <Link href="/" className="flex items-center space-x-3">
-          <Image
-            src="/images/icons/wa-icon.jpeg"
-            alt="JW logo"
-            width={28}
-            height={28}
-            className="h-7 w-7 object-contain"
-            priority
-          />
-          <span className="font-serif text-xl font-bold">Jennifer Watkins</span>
+        <Link href="#home" className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-gradient-to-br from-pink-primary to-pink-vibrant rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">YN</span>
+          </div>
+          <span className="font-bold text-xl bg-gradient-to-r from-pink-primary to-pink-vibrant bg-clip-text text-transparent">
+            Your Name
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -87,11 +84,11 @@ const Header = () => {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-slate-blue relative group"
+              className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-pink-primary relative group"
             >
               {item.icon && <item.icon className="h-4 w-4" />}
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-blue transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
