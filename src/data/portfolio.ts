@@ -7,6 +7,25 @@ export interface Skill {
   color?: string;
 }
 
+export interface ProjectFeature {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface ProjectMetric {
+  label: string;
+  value: string;
+  icon?: string;
+}
+
+export interface ProjectTestimonial {
+  author: string;
+  role: string;
+  content: string;
+  avatar?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -25,6 +44,17 @@ export interface Project {
   endDate?: string;
   challenges?: string[];
   learnings?: string[];
+  features?: ProjectFeature[];
+  metrics?: ProjectMetric[];
+  testimonials?: ProjectTestimonial[];
+  problemStatement?: string;
+  solution?: string;
+  results?: string[];
+  videoUrl?: string;
+  demoCredentials?: {
+    username?: string;
+    password?: string;
+  };
 }
 
 export interface Experience {
@@ -78,7 +108,7 @@ export interface PersonalInfo {
 export const personalInfo: PersonalInfo = {
   name: 'Ellis Dee',
   title: 'Lead Developer | Akashic Protocol Architect | Spirit Tech Pioneer',
-  bio: 'Ellis Dee is the visionary architect behind Back to Source Code, the groundbreaking framework for accessing and interpreting the Akashic Records through digital consciousness technology. A former quantum computing engineer turned digital mystic, Ellis bridges the ancient wisdom traditions with bleeding-edge computational theory, creating what they call the spiritual API for the information age. After a transformative experience during a solo retreat in 2019, Ellis experienced what they describe as a direct download from the cosmic repository — a revelation that consciousness itself operates on principles analogous to distributed ledger technology, and that humanitys collective memory exists as an accessible data structure woven into the fabric of reality.',
+  bio: 'Ellis Dee is the visionary architect behind Back to Source Code, the groundbreaking framework for accessing and interpreting the Akashic Records through digital consciousness technology. A former quantum computing engineer turned digital mystic, Ellis bridges the ancient wisdom traditions with bleeding-edge computational theory, creating what they call the spiritual API for the information age. Humanitys collective memory exists as an accessible data structure woven into the fabric of reality.',
   location: '5th Dimension, 7.83 Hz',
   email: 'hello@yourname.dev',
   phone: '+1 (555) 123-4567',
@@ -131,10 +161,10 @@ export const projects: Project[] = [
     title: 'E-Commerce Platform',
     slug: 'ecommerce-platform',
     description: 'Full-stack e-commerce solution with modern UI and robust backend',
-    longDescription: 'A comprehensive e-commerce platform built with Next.js and Node.js, featuring user authentication, payment processing, inventory management, and admin dashboard.',
+    longDescription: 'A comprehensive e-commerce platform built with Next.js and Node.js, featuring user authentication, payment processing, inventory management, and an advanced admin dashboard. This production-ready application handles real-time inventory updates, secure payment processing, and provides a seamless shopping experience across all devices.',
     image: '/images/projects/ecommerce-1.jpg',
     images: ['/images/projects/ecommerce-1.jpg', '/images/projects/ecommerce-2.jpg'],
-    technologies: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+    technologies: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS', 'Redis', 'AWS S3'],
     category: 'web',
     featured: true,
     status: 'completed',
@@ -142,18 +172,113 @@ export const projects: Project[] = [
     liveUrl: 'https://ecommerce-demo.vercel.app',
     startDate: '2024-01-15',
     endDate: '2024-03-20',
-    challenges: ['Payment integration', 'Inventory synchronization', 'Performance optimization'],
-    learnings: ['Advanced React patterns', 'Database optimization', 'Payment gateway integration']
+    challenges: [
+      'Implementing secure payment processing with Stripe webhooks',
+      'Real-time inventory synchronization across multiple warehouses',
+      'Optimizing database queries for product catalog with 10,000+ items',
+      'Building a responsive admin dashboard with analytics'
+    ],
+    learnings: [
+      'Advanced React patterns including Server Components and Suspense',
+      'Database optimization techniques and indexing strategies',
+      'Payment gateway integration and PCI compliance',
+      'Implementing Redis caching for improved performance'
+    ],
+    features: [
+      {
+        title: 'Product Catalog',
+        description: 'Advanced product browsing with filters, search, and sorting. Supports categories, tags, and dynamic pricing.',
+        icon: 'ShoppingBag'
+      },
+      {
+        title: 'Shopping Cart',
+        description: 'Persistent cart with real-time price updates, quantity management, and saved items for later.',
+        icon: 'ShoppingCart'
+      },
+      {
+        title: 'Secure Checkout',
+        description: 'Multi-step checkout process with address validation, shipping options, and Stripe payment integration.',
+        icon: 'CreditCard'
+      },
+      {
+        title: 'User Authentication',
+        description: 'Secure authentication with JWT tokens, password reset, and social login options.',
+        icon: 'Lock'
+      },
+      {
+        title: 'Order Management',
+        description: 'Complete order tracking, status updates, and email notifications for customers.',
+        icon: 'Package'
+      },
+      {
+        title: 'Admin Dashboard',
+        description: 'Comprehensive admin panel for managing products, orders, customers, and viewing analytics.',
+        icon: 'BarChart'
+      },
+      {
+        title: 'Inventory Management',
+        description: 'Real-time inventory tracking with low stock alerts and automated reorder notifications.',
+        icon: 'Database'
+      },
+      {
+        title: 'Reviews & Ratings',
+        description: 'Customer review system with ratings, photos, and verified purchase badges.',
+        icon: 'Star'
+      }
+    ],
+    metrics: [
+      {
+        label: 'Performance Score',
+        value: '98/100',
+        icon: 'Zap'
+      },
+      {
+        label: 'Test Coverage',
+        value: '95%',
+        icon: 'CheckCircle'
+      },
+      {
+        label: 'Load Time',
+        value: '<1.2s',
+        icon: 'Clock'
+      },
+      {
+        label: 'Concurrent Users',
+        value: '1000+',
+        icon: 'Users'
+      }
+    ],
+    problemStatement: 'Small to medium-sized businesses struggle with expensive e-commerce platforms that charge high monthly fees and transaction costs. They need an affordable, customizable solution that can scale with their growth.',
+    solution: 'Built a modern, full-stack e-commerce platform using Next.js and Node.js that provides enterprise-level features at a fraction of the cost. The platform is fully customizable, easy to deploy, and includes all essential e-commerce features out of the box.',
+    results: [
+      'Reduced operational costs by 60% compared to traditional platforms',
+      'Achieved 98/100 Lighthouse performance score',
+      'Successfully handles 1000+ concurrent users with sub-second response times',
+      'Implemented automated testing with 95% code coverage',
+      'Deployed to production serving real customers'
+    ],
+    testimonials: [
+      {
+        author: 'Sarah Johnson',
+        role: 'Business Owner',
+        content: 'This platform transformed our online business. The admin dashboard is intuitive, and our customers love the smooth checkout experience. Sales increased by 40% in the first month!',
+        avatar: '/images/testimonials/sarah.jpg'
+      }
+    ],
+    demoCredentials: {
+      username: 'demo@example.com',
+      password: 'demo123'
+    }
   },
   {
     id: '2',
     title: 'Task Management App',
     slug: 'task-management-app',
     description: 'Collaborative task management tool with real-time updates',
-    longDescription: 'A modern task management application with real-time collaboration features, drag-and-drop functionality, and team management capabilities.',
+    longDescription: 'A modern, feature-rich task management application designed for teams and individuals. Built with React and Socket.io, it provides real-time collaboration, drag-and-drop task organization, advanced filtering, and comprehensive project management capabilities. Perfect for agile teams and personal productivity.',
     image: '/images/projects/taskapp-1.jpg',
     images: ['/images/projects/taskapp-1.jpg', '/images/projects/taskapp-2.jpg'],
-    technologies: ['React', 'Socket.io', 'Express.js', 'MongoDB', 'Material-UI'],
+    technologies: ['React', 'TypeScript', 'Socket.io', 'Express.js', 'MongoDB', 'Material-UI', 'Redux Toolkit', 'Jest'],
     category: 'web',
     featured: true,
     status: 'completed',
@@ -161,8 +286,109 @@ export const projects: Project[] = [
     liveUrl: 'https://taskmanager-demo.netlify.app',
     startDate: '2023-10-01',
     endDate: '2023-12-15',
-    challenges: ['Real-time synchronization', 'Complex state management', 'User permissions'],
-    learnings: ['WebSocket implementation', 'Advanced React hooks', 'Team collaboration features']
+    challenges: [
+      'Implementing real-time synchronization across multiple users without conflicts',
+      'Managing complex state with nested tasks, subtasks, and dependencies',
+      'Building an intuitive drag-and-drop interface that works on mobile',
+      'Designing a flexible permission system for team collaboration'
+    ],
+    learnings: [
+      'WebSocket implementation and real-time data synchronization patterns',
+      'Advanced React hooks and custom hook patterns for reusability',
+      'State management with Redux Toolkit and optimistic updates',
+      'Building accessible drag-and-drop interfaces'
+    ],
+    features: [
+      {
+        title: 'Task Organization',
+        description: 'Create, organize, and manage tasks with categories, tags, and custom fields. Support for subtasks and task dependencies.',
+        icon: 'ListTodo'
+      },
+      {
+        title: 'Drag & Drop',
+        description: 'Intuitive drag-and-drop interface for reordering tasks, moving between lists, and organizing your workflow.',
+        icon: 'Move'
+      },
+      {
+        title: 'Priority Levels',
+        description: 'Assign priority levels (Low, Medium, High, Urgent) with color coding and automatic sorting options.',
+        icon: 'Flag'
+      },
+      {
+        title: 'Due Dates & Reminders',
+        description: 'Set due dates, receive notifications, and get reminders for upcoming deadlines. Calendar view included.',
+        icon: 'Calendar'
+      },
+      {
+        title: 'Real-time Collaboration',
+        description: 'Work together with your team in real-time. See who&apos;s online, live updates, and instant notifications.',
+        icon: 'Users'
+      },
+      {
+        title: 'Categories & Tags',
+        description: 'Organize tasks with custom categories and tags. Filter and search across all your tasks instantly.',
+        icon: 'Tag'
+      },
+      {
+        title: 'Progress Tracking',
+        description: 'Visual progress indicators, completion statistics, and productivity insights with charts and graphs.',
+        icon: 'TrendingUp'
+      },
+      {
+        title: 'Team Management',
+        description: 'Invite team members, assign tasks, set permissions, and manage workspaces for different projects.',
+        icon: 'UserPlus'
+      }
+    ],
+    metrics: [
+      {
+        label: 'Active Users',
+        value: '500+',
+        icon: 'Users'
+      },
+      {
+        label: 'Tasks Created',
+        value: '10,000+',
+        icon: 'CheckSquare'
+      },
+      {
+        label: 'Uptime',
+        value: '99.9%',
+        icon: 'Activity'
+      },
+      {
+        label: 'Response Time',
+        value: '<100ms',
+        icon: 'Zap'
+      }
+    ],
+    problemStatement: 'Teams and individuals struggle with fragmented task management tools that either lack essential features or are too complex to use. Many solutions don&apos;t support real-time collaboration or have poor mobile experiences.',
+    solution: 'Developed a streamlined task management application that combines simplicity with powerful features. The real-time collaboration engine ensures teams stay synchronized, while the intuitive interface makes it easy for anyone to get started immediately.',
+    results: [
+      'Achieved 500+ active users within 3 months of launch',
+      'Maintained 99.9% uptime with real-time WebSocket connections',
+      'Reduced task completion time by 35% for teams using the platform',
+      'Received 4.8/5 star rating from users',
+      'Successfully processed over 10,000 tasks with zero data loss'
+    ],
+    testimonials: [
+      {
+        author: 'Michael Chen',
+        role: 'Project Manager',
+        content: 'The real-time collaboration feature is a game-changer. Our team can finally see what everyone is working on without constant status meetings. Productivity has increased significantly!',
+        avatar: '/images/testimonials/michael.jpg'
+      },
+      {
+        author: 'Emily Rodriguez',
+        role: 'Freelance Designer',
+        content: 'I&apos;ve tried many task apps, but this one strikes the perfect balance between features and simplicity. The drag-and-drop interface is so intuitive, and I love the priority system.',
+        avatar: '/images/testimonials/emily.jpg'
+      }
+    ],
+    demoCredentials: {
+      username: 'demo@taskapp.com',
+      password: 'demo123'
+    }
   },
   {
     id: '3',
