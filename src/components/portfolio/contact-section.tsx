@@ -109,7 +109,7 @@ const ContactSection = () => {
             {/* Contact Information */}
             <motion.div variants={itemVariants} className="space-y-8">
               <div>
-                <h3 className="heading-tertiary mb-6">Let's Connect</h3>
+                <h3 className="heading-tertiary mb-6">Let&apos;s Connect</h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   Whether you have a project in mind, want to collaborate, or just want to say hello,
                   I&apos;d love to hear from you. Feel free to reach out through any of the channels below.
@@ -266,7 +266,7 @@ const ContactSection = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         className="focus:ring-pink-primary focus:border-pink-primary"
-                        placeholder="What's this about?"
+                        placeholder="What&apos;s this about?"
                       />
                     </div>
 
