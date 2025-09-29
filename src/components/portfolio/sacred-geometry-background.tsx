@@ -329,7 +329,7 @@ const FloatingGeometry = ({ type, size = 30, className = '' }: {
 const SacredGeometryBackground = () => {
   const [isReducedMotion, setIsReducedMotion] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const { isLowPerformance, fps } = usePerformanceMonitor();
+  const { isLowPerformance } = usePerformanceMonitor();
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

@@ -101,7 +101,7 @@ const ContactSection = () => {
           <motion.div variants={itemVariants} className="portfolio-header">
             <h2 className="heading-secondary mb-4">Get In Touch</h2>
             <p className="portfolio-subtitle">
-              I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+              I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </motion.div>
 
@@ -111,8 +111,8 @@ const ContactSection = () => {
               <div>
                 <h3 className="heading-tertiary mb-6">Let's Connect</h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                  I'd love to hear from you. Feel free to reach out through any of the channels below.
+                  Whether you have a project in mind, want to collaborate, or just want to say hello,
+                  I&apos;d love to hear from you. Feel free to reach out through any of the channels below.
                 </p>
               </div>
 

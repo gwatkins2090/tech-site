@@ -21,96 +21,6 @@ const FlowerOfLifeBackground = () => {
     }
   }, []);
 
-  // Generate Flower of Life pattern
-  const generateFlowerOfLife = (id) => {
-    const radius = 40;
-    const centerX = 100;
-    const centerY = 100;
-    const angleStep = Math.PI / 3; // 60 degrees for hexagonal pattern
-    const distance = radius * Math.sqrt(3);
-
-    const circles = [
-      { cx: centerX, cy: centerY, r: radius }
-    ];
-
-    // Generate 6 circles around the center (traditional Flower of Life)
-    for (let i = 0; i < 6; i++) {
-      const angle = i * angleStep;
-      circles.push({
-        cx: centerX + distance * Math.cos(angle),
-        cy: centerY + distance * Math.sin(angle),
-        r: radius
-      });
-    }
-
-    // Add outer ring for seamless tiling
-    for (let i = 0; i < 6; i++) {
-      const angle = i * angleStep + angleStep / 2;
-      circles.push({
-        cx: centerX + distance * 1.5 * Math.cos(angle),
-        cy: centerY + distance * 1.5 * Math.sin(angle),
-        r: radius
-      });
-    }
-
-    return (
-      <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id={`gradient-${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <animate
-              attributeName="x1"
-              values="0%;100%;0%"
-              dur={id === 'primary' ? '25s' : '35s'}
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="y1"
-              values="0%;100%;0%"
-              dur={id === 'primary' ? '20s' : '30s'}
-              repeatCount="indefinite"
-            />
-            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.6">
-              <animate
-                attributeName="stop-color"
-                values="#ec4899;#FF1744;#FF3838;#ef4444;#ec4899"
-                dur="25s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="50%" stopColor="#FF1744" stopOpacity="0.4">
-              <animate
-                attributeName="stop-color"
-                values="#FF1744;#FF3838;#ef4444;#ec4899;#FF1744"
-                dur="30s"
-                repeatCount="indefinite"
-              />
-            </stop>
-            <stop offset="100%" stopColor="#ef4444" stopOpacity="0.6">
-              <animate
-                attributeName="stop-color"
-                values="#ef4444;#ec4899;#FF1744;#FF3838;#ef4444"
-                dur="35s"
-                repeatCount="indefinite"
-              />
-            </stop>
-          </linearGradient>
-        </defs>
-        {circles.map((circle, idx) => (
-          <circle
-            key={idx}
-            cx={circle.cx}
-            cy={circle.cy}
-            r={circle.r}
-            fill="none"
-            stroke={`url(#gradient-${id})`}
-            strokeWidth="1.5"
-            opacity="0.8"
-          />
-        ))}
-      </svg>
-    );
-  };
-
   // Generate SVG string for background
   const generateFlowerOfLifeSVG = (id) => {
     const radius = 40;
@@ -143,7 +53,7 @@ const FlowerOfLifeBackground = () => {
       });
     }
 
-    const circleElements = circles.map((circle, idx) =>
+    const circleElements = circles.map((circle) =>
       `<circle cx="${circle.cx}" cy="${circle.cy}" r="${circle.r}" fill="none" stroke="url(#gradient-${id})" stroke-width="2.5" opacity="0.9" />`
     ).join('');
 

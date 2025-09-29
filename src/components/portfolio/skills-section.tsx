@@ -33,15 +33,6 @@ const SkillsSection = () => {
     }
   };
 
-  const skillVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 }
-    }
-  };
-
   const getSkillsByCategory = (category: string) => {
     return skills.filter(skill => skill.category === category);
   };

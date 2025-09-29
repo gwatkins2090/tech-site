@@ -80,15 +80,15 @@ const AboutSection = () => {
               <div>
                 <h3 className="heading-tertiary mb-4">My Journey</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  I'm a passionate full-stack developer with over 4 years of experience creating 
-                  digital solutions that make a difference. My journey started with a curiosity 
-                  about how websites work, and it has evolved into a deep love for crafting 
+                  I&apos;m a passionate full-stack developer with over 4 years of experience creating
+                  digital solutions that make a difference. My journey started with a curiosity
+                  about how websites work, and it has evolved into a deep love for crafting
                   efficient, scalable, and user-friendly applications.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  I specialize in modern web technologies and enjoy working on projects that 
-                  challenge me to learn and grow. When I'm not coding, you can find me 
-                  contributing to open-source projects, writing technical articles, or 
+                  I specialize in modern web technologies and enjoy working on projects that
+                  challenge me to learn and grow. When I&apos;m not coding, you can find me
+                  contributing to open-source projects, writing technical articles, or
                   exploring the latest trends in technology.
                 </p>
               </div>
@@ -129,7 +129,7 @@ const AboutSection = () => {
           <motion.div variants={itemVariants} className="mt-16">
             <h3 className="heading-tertiary text-center mb-12">Professional Experience</h3>
             <div className="space-y-8">
-              {experience.map((exp, index) => (
+              {experience.map((exp) => (
                 <motion.div
                   key={exp.id}
                   variants={itemVariants}

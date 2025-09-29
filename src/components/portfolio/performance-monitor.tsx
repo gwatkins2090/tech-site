@@ -30,7 +30,7 @@ export const usePerformanceMonitor = () => {
         lastTime = currentTime;
         
         // Get memory usage if available
-        const memoryInfo = (performance as any).memory;
+        const memoryInfo = (performance as { memory?: { usedJSHeapSize: number } }).memory;
         const memoryUsage = memoryInfo ? memoryInfo.usedJSHeapSize / 1048576 : 0; // MB
         
         // Consider low performance if FPS drops below 30 or memory usage is high
