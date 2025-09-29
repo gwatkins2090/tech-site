@@ -3,10 +3,9 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  X, 
-  Github, 
-  ExternalLink, 
+import {
+  X,
+  Github,
   Calendar,
   CheckCircle,
   AlertCircle,
@@ -53,7 +52,7 @@ const ProjectDetailModal = ({ project, isOpen, onClose }: ProjectDetailModalProp
   }, [isOpen, onClose]);
 
   const getIcon = (iconName: string) => {
-    const Icon = (LucideIcons as Record<string, React.ComponentType<{ className?: string }>>)[iconName];
+    const Icon = (LucideIcons as any)[iconName];
     return Icon ? <Icon className="h-5 w-5" /> : null;
   };
 

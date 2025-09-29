@@ -3,11 +3,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  Github, 
-  ExternalLink, 
-  Calendar, 
-  Tag, 
+import {
+  Calendar,
   Filter,
   X,
   ChevronRight,
@@ -45,9 +42,8 @@ const EnhancedProjectsSection = () => {
     }
   };
 
-  // Get unique categories and technologies
+  // Get unique categories
   const categories = ['all', ...new Set(projects.map(p => p.category))];
-  const allTechnologies = ['all', ...new Set(projects.flatMap(p => p.technologies))];
 
   // Filter and sort projects
   const filteredProjects = projects
