@@ -19,7 +19,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Project } from '@/data/portfolio';
-import * as LucideIcons from 'lucide-react';
+import * as Icons from 'lucide-react';
 
 interface ProjectDetailModalProps {
   project: Project;
@@ -52,8 +52,10 @@ const ProjectDetailModal = ({ project, isOpen, onClose }: ProjectDetailModalProp
   }, [isOpen, onClose]);
 
   const getIcon = (iconName: string) => {
-    const Icon = (LucideIcons as any)[iconName];
-    return Icon ? <Icon className="h-5 w-5" /> : null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const IconComponent = (Icons as any)[iconName];
+    if (!IconComponent) return null;
+    return <IconComponent className="h-5 w-5" />;
   };
 
   return (
